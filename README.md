@@ -299,6 +299,14 @@ const hello = require('./1.2.modules')
 hello()
 ```
 
+## 编辑器与调试
+
+编程有三等境界：
+
+- 打日志：可用 console.log、debug 模块或 Node.js SDK 内置的 util.log 等方式。
+- 断点调试：可用 Node debugger 或 VSCode 编辑器。
+- 测试驱动开发：TDD 和 BDD 测试框架非常多，比如 Mocha、AVA、Jest、Cucumber 等。
+
 ## 临时工具
 
 ```js

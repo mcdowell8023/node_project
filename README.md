@@ -1,6 +1,7 @@
 # 读狼叔 nodejs 学习笔记
 
 - [1.node.js 理论](./doc/1.node.js理论.md)
+- [2.起步](./doc/2.起步.md)
 
 ## 临时工具
 
@@ -15,6 +16,6 @@ function getAllContents(tag = '.content') {
   }
   const str = contents.toString()
   // console.log(str,'i')
-  console.log(contents.join('\r\n'), '获取全部内容')
+  console.log(contents.join('\r\n'), '：以上为获取的全部内容')
 }
 ```

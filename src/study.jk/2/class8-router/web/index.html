@@ -1,0 +1,61 @@
+<!--
+ * @Author: mcdowell
+ * @Date: 2020-05-09 05:37:31
+ * @LastEditors: mcdowell
+ * @LastEditTime: 2020-05-09 23:03:02
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>node 服务 配套 测试页面</title>
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+
+<body>
+  <div class="box" id="messageBox">
+  </div>
+  <div class="send-btns">
+    <button name="rock">石头</button>
+    <button name="scissors">剪刀</button>
+    <button name="paper">布</button>
+  </div>
+  <img src="/static/WechatIMG8.jpeg" width="100" alt="">
+  <script>
+    var oResultBox = document.querySelector('#messageBox')
+
+    // var oRockBtn = document.getElementsByName('rock')[0]
+    // var oScissorsBtn = document.getElementsByName('scissors')[0]
+    // var oPaperBtn = document.getElementsByName('paper')[0]
+    var oBtns = document.querySelectorAll('.send-btns button')
+
+    for (let btn of oBtns) {
+      btn.onclick = function (event) {
+        const action = this.name;
+        getRequest('/api/game?action=' + action, function (res) {
+          const oP = document.createElement('P')
+          oP.innerHTML = res;
+          oResultBox.appendChild(oP)
+          console.log(res, '返回结果')
+        })
+      }
+    }
+
+    function getRequest(url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.onload = function (res) {
+        const data = res.target.response
+        // 请求结束后,在此处写处理代码
+        callback && callback(data)
+      };
+      xhr.send(null);
+    }
+
+  </script>
+</body>
+
+</html>

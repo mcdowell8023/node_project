@@ -1,0 +1,4 @@
+message data{
+  required string id  = 1;
+  required string title  = 2; 
+}
